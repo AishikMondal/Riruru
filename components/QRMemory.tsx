@@ -8,18 +8,22 @@ export default function QRMemory() {
 
   useEffect(() => {
     // Check if already unlocked
-    const unlocked = localStorage.getItem('letterUnlocked');
-    if (unlocked === 'true') {
-      setIsUnlocked(true);
+    if (typeof window !== 'undefined') {
+      const unlocked = localStorage.getItem('letterUnlocked');
+      if (unlocked === 'true') {
+        setIsUnlocked(true);
+      }
     }
   }, []);
 
   const handleUnlock = () => {
-    localStorage.setItem('letterUnlocked', 'true');
-    setIsUnlocked(true);
-    
-    // Dispatch custom event to notify other components
-    window.dispatchEvent(new Event('letterUnlocked'));
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('letterUnlocked', 'true');
+      setIsUnlocked(true);
+      
+      // Dispatch custom event to notify other components
+      window.dispatchEvent(new Event('letterUnlocked'));
+    }
   };
 
   return (

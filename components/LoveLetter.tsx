@@ -9,15 +9,19 @@ export default function LoveLetter() {
   useEffect(() => {
     // Check if letter is unlocked
     const checkUnlocked = () => {
-      const unlocked = localStorage.getItem('letterUnlocked');
-      setIsUnlocked(unlocked === 'true');
+      if (typeof window !== 'undefined') {
+        const unlocked = localStorage.getItem('letterUnlocked');
+        setIsUnlocked(unlocked === 'true');
+      }
     };
 
     checkUnlocked();
 
     // Listen for unlock event
-    window.addEventListener('letterUnlocked', checkUnlocked);
-    return () => window.removeEventListener('letterUnlocked', checkUnlocked);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('letterUnlocked', checkUnlocked);
+      return () => window.removeEventListener('letterUnlocked', checkUnlocked);
+    }
   }, []);
 
   return (
