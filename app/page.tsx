@@ -13,7 +13,7 @@ export default function Home() {
   const [musicToggle, setMusicToggle] = useState(false);
 
   return (
-    <main className="min-h-screen w-full overflow-x-hidden bg-gradient-to-b from-pink-50 via-rose-50 to-purple-50">
+    <main className="min-h-screen w-full overflow-x-hidden bg-gradient-to-b from-pink-100 via-rose-100 to-purple-100">
       <FloatingHearts />
       
       {/* Music Toggle */}

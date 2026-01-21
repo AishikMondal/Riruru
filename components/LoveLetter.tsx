@@ -4,14 +4,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
 export default function LoveLetter() {
-  const [isUnlocked, setIsUnlocked] = useState(false);
+  const [isUnlocked, setIsUnlocked] = useState(true); // Always unlocked now
 
   useEffect(() => {
     // Check if letter is unlocked
     const checkUnlocked = () => {
       if (typeof window !== 'undefined') {
         const unlocked = localStorage.getItem('letterUnlocked');
-        setIsUnlocked(unlocked === 'true');
+        if (unlocked === 'true') {
+          setIsUnlocked(true);
+        }
       }
     };
 
@@ -25,7 +27,7 @@ export default function LoveLetter() {
   }, []);
 
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center px-4 py-20 bg-gradient-to-b from-purple-50/50 via-pink-50 to-rose-100/50 overflow-hidden">
+    <section className="relative min-h-screen w-full flex items-center justify-center px-4 py-20 bg-gradient-to-b from-purple-100 via-pink-100 to-rose-150 overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <motion.div

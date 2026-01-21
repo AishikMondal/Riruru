@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function Ending() {
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center px-4 py-20 bg-gradient-to-b from-rose-50/50 via-purple-50 to-pink-100/50 overflow-hidden">
+    <section className="relative min-h-screen w-full flex items-center justify-center px-4 py-20 bg-gradient-to-b from-rose-100 via-purple-100 to-pink-150 overflow-hidden">
       {/* Confetti animation */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(20)].map((_, i) => (
@@ -16,7 +16,7 @@ export default function Ending() {
               top: '-20px',
             }}
             animate={{
-              y: window.innerHeight + 40,
+              y: typeof window !== 'undefined' ? window.innerHeight + 40 : 800,
               opacity: [1, 1, 0],
               rotate: [0, Math.random() * 360],
               x: Math.sin(i) * 100,
@@ -166,7 +166,7 @@ export default function Ending() {
         transition={{ duration: 1.5, repeat: Infinity }}
       >
         <button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          onClick={() => typeof window !== 'undefined' && window.scrollTo({ top: 0, behavior: 'smooth' })}
           className="px-6 py-3 rounded-full bg-gradient-to-r from-pink-400 to-purple-400 text-white font-poppins hover:shadow-lg transition-shadow"
         >
           Back to Top ⬆️

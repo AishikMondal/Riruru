@@ -4,15 +4,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
 export default function QRMemory() {
-  const [isUnlocked, setIsUnlocked] = useState(false);
+  const [isUnlocked, setIsUnlocked] = useState(true); // Always show as unlocked
 
   useEffect(() => {
-    // Check if already unlocked
+    // Always set as unlocked
     if (typeof window !== 'undefined') {
-      const unlocked = localStorage.getItem('letterUnlocked');
-      if (unlocked === 'true') {
-        setIsUnlocked(true);
-      }
+      localStorage.setItem('letterUnlocked', 'true');
+      setIsUnlocked(true);
     }
   }, []);
 
@@ -27,7 +25,7 @@ export default function QRMemory() {
   };
 
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center px-4 py-20 bg-gradient-to-br from-rose-50 via-pink-50/50 to-purple-100/50 overflow-hidden">
+    <section className="relative min-h-screen w-full flex items-center justify-center px-4 py-20 bg-gradient-to-br from-rose-100 via-pink-100 to-purple-150 overflow-hidden">
       <motion.div
         className="relative z-10 flex flex-col items-center justify-center gap-8 max-w-2xl"
         initial={{ opacity: 0, y: 30 }}

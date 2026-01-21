@@ -5,32 +5,32 @@ import { motion } from 'framer-motion';
 
 export default function FloatingHearts() {
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden">
+    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
       {/* Generate floating hearts across the entire viewport */}
-      {[...Array(30)].map((_, i) => (
+      {[...Array(40)].map((_, i) => (
         <motion.div
           key={i}
           className="absolute"
           style={{
             left: `${Math.random() * 100}%`,
             top: `-10%`,
-            fontSize: `${12 + Math.random() * 20}px`,
-            opacity: 0.1 + Math.random() * 0.2,
+            fontSize: `${16 + Math.random() * 24}px`,
+            opacity: 0.15 + Math.random() * 0.25,
           }}
           animate={{
             y: ['-10%', '110%'],
-            x: Math.sin(i) * 50,
+            x: Math.sin(i) * 60,
             opacity: [
-              0.1 + Math.random() * 0.2,
-              0.3 + Math.random() * 0.2,
-              0.1 + Math.random() * 0.2,
+              0.15 + Math.random() * 0.25,
+              0.4 + Math.random() * 0.3,
+              0.15 + Math.random() * 0.25,
             ],
             rotate: [0, Math.random() * 360],
           }}
           transition={{
-            duration: 8 + Math.random() * 8,
+            duration: 10 + Math.random() * 10,
             repeat: Infinity,
-            delay: Math.random() * 2,
+            delay: Math.random() * 3,
             ease: 'linear',
           }}
         >
@@ -57,7 +57,7 @@ function CursorSparkles() {
       setMousePosition({ x: e.clientX, y: e.clientY });
 
       // Randomly add sparkles
-      if (Math.random() > 0.7) {
+      if (Math.random() > 0.85) {
         const id = Date.now() + Math.random();
         setSparkles((prev) => [
           ...prev,
@@ -67,12 +67,14 @@ function CursorSparkles() {
         // Remove sparkle after animation
         setTimeout(() => {
           setSparkles((prev) => prev.filter((s) => s.id !== id));
-        }, 600);
+        }, 800);
       }
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('mousemove', handleMouseMove);
+      return () => window.removeEventListener('mousemove', handleMouseMove);
+    }
   }, []);
 
   return (
@@ -80,17 +82,17 @@ function CursorSparkles() {
       {sparkles.map((sparkle) => (
         <motion.div
           key={sparkle.id}
-          className="fixed pointer-events-none text-lg"
+          className="fixed pointer-events-none text-2xl"
           style={{
             left: sparkle.x,
             top: sparkle.y,
             zIndex: 1000,
           }}
           initial={{ opacity: 1, scale: 1 }}
-          animate={{ opacity: 0, scale: 0 }}
-          transition={{ duration: 0.6 }}
+          animate={{ opacity: 0, scale: 0, rotate: 360 }}
+          transition={{ duration: 0.8 }}
         >
-          ✨
+          💖
         </motion.div>
       ))}
     </>
