@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function Ending() {
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center px-4 py-20 bg-gradient-to-b from-rose-100 via-purple-100 to-pink-150 overflow-hidden">
+    <section className="relative min-h-screen w-full flex items-center justify-center px-4 py-20 bg-gradient-to-b from-rose-200 via-purple-200 to-pink-300 overflow-hidden">
       {/* Confetti animation */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(20)].map((_, i) => (

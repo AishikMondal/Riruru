@@ -25,7 +25,7 @@ export default function QRMemory() {
   };
 
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center px-4 py-20 bg-gradient-to-br from-rose-100 via-pink-100 to-purple-150 overflow-hidden">
+    <section className="relative min-h-screen w-full flex items-center justify-center px-4 py-20 bg-gradient-to-br from-rose-200 via-pink-200 to-purple-300 overflow-hidden">
       <motion.div
         className="relative z-10 flex flex-col items-center justify-center gap-8 max-w-2xl"
         initial={{ opacity: 0, y: 30 }}

@@ -48,7 +48,7 @@ export default function Hero({ image }: HeroProps) {
 
   return (
     <section className="relative min-h-screen w-full flex items-center justify-center px-4 py-20 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-pink-200 via-rose-100 to-purple-200"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-pink-300 via-rose-200 to-purple-300"></div>
 
       <motion.div
         className="relative z-10 flex flex-col items-center justify-center gap-8 max-w-2xl"
@@ -59,7 +59,8 @@ export default function Hero({ image }: HeroProps) {
         {/* Happy Birthday Text */}
         <motion.h1
           variants={itemVariants}
-          className="text-6xl md:text-7xl font-dancing text-transparent bg-clip-text bg-gradient-to-r from-pink-600 via-rose-600 to-purple-600 text-center leading-tight drop-shadow-lg"
+          className="text-6xl md:text-7xl font-dancing text-transparent bg-clip-text bg-gradient-to-r from-pink-700 via-rose-700 to-purple-700 text-center leading-tight drop-shadow-2xl"
+          style={{ WebkitTextStroke: '1px rgba(219, 39, 119, 0.3)' }}
         >
           Happy Birthday 🎂💖
         </motion.h1>
@@ -67,7 +68,7 @@ export default function Hero({ image }: HeroProps) {
         {/* Name */}
         <motion.h2
           variants={itemVariants}
-          className="text-5xl md:text-6xl font-pacifico text-rose-700 text-center drop-shadow-md"
+          className="text-5xl md:text-6xl font-pacifico text-rose-800 text-center drop-shadow-lg"
         >
           Sagnika
         </motion.h2>
@@ -75,7 +76,7 @@ export default function Hero({ image }: HeroProps) {
         {/* Caption */}
         <motion.p
           variants={itemVariants}
-          className="text-xl md:text-2xl text-rose-600 text-center font-poppins drop-shadow-sm"
+          className="text-xl md:text-2xl text-rose-700 text-center font-poppins drop-shadow-md"
         >
           A quiet smile that feels like home 🤍
         </motion.p>

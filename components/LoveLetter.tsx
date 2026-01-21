@@ -27,7 +27,7 @@ export default function LoveLetter() {
   }, []);
 
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center px-4 py-20 bg-gradient-to-b from-purple-100 via-pink-100 to-rose-150 overflow-hidden">
+    <section className="relative min-h-screen w-full flex items-center justify-center px-4 py-20 bg-gradient-to-b from-purple-200 via-pink-200 to-rose-300 overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <motion.div

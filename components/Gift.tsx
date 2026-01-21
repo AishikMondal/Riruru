@@ -41,7 +41,7 @@ export default function Gift() {
   };
 
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center px-4 py-20 bg-gradient-to-br from-pink-100 via-rose-150 to-purple-100 overflow-hidden">
+    <section className="relative min-h-screen w-full flex items-center justify-center px-4 py-20 bg-gradient-to-br from-pink-200 via-rose-200 to-purple-200 overflow-hidden">
       <div className="relative z-10 flex flex-col items-center justify-center gap-8">
         {/* Title */}
         <motion.h2
